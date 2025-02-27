@@ -10,23 +10,6 @@ class CustomUser(AbstractUser):
         return f"{self.username} - {self.telegram_username}"
 
 
-class Modifications(models.Model):
-    modification = models.CharField(max_length=50)
-    necessary = models.BooleanField()
-
-    def __str__(self):
-        return self.modification
-
-
-class VariablesOfModification(models.Model):
-    modification = models.ForeignKey(Modifications, on_delete=models.CASCADE, related_name='all')
-    tier = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=10)
-
-    def __str__(self):
-        return f'{self.modification} - {self.tier}'
-
-
 class Cake(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
@@ -38,13 +21,30 @@ class Cake(models.Model):
         return self.name
 
 
+class Modifications(models.Model):
+    modification = models.CharField(max_length=50)
+    necessary = models.BooleanField()
+    cake = models.ForeignKey(Cake, on_delete=models.CASCADE, related_name='modifications')
+
+    def __str__(self):
+        return f'{self.modification}'
+
+
+class VariablesOfModification(models.Model):
+    modification = models.ForeignKey(Modifications, on_delete=models.CASCADE, related_name='variables_of_modification')
+    tier = models.TextField()
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+
+    def __str__(self):
+        return f'{self.modification} - {self.tier}'
+
+
 class Order(models.Model):
     customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='orders')
     address = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
     cake = models.ForeignKey(Cake, on_delete=models.CASCADE, blank=True, null=True, related_name='orders')
-    variables_of_modifications = models.ManyToManyField(VariablesOfModification, blank=True, null=True,
-                                                        related_name='orders')
+    variables_of_modifications = models.ManyToManyField(VariablesOfModification, blank=True, related_name='orders')
     delivery = models.DateTimeField()
     phone_number = models.BigIntegerField()
     created = models.DateTimeField(auto_now_add=True)

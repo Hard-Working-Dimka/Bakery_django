@@ -3,10 +3,6 @@ from django.contrib import admin
 from .models import Cake, Modifications, Order, CustomUser, VariablesOfModification
 
 
-# class VariablesOfModificationAdminInline(admin.TabularInline):
-#     model = Order.variables_of_modifications.through
-
-
 class VariablesOfModificationAdminInline(admin.TabularInline):
     model = VariablesOfModification
 
@@ -24,9 +20,9 @@ class CakeAdmin(admin.ModelAdmin):
 
 @admin.register(Modifications)
 class CakeAdmin(admin.ModelAdmin):
-    list_display = ['modification', 'necessary']
+    list_display = ['id', 'cake', 'modification', 'necessary']
     search_fields = ['modification', ]
-    list_filter = ['necessary', ]
+    list_filter = ['necessary', 'cake', ]
     inlines = [VariablesOfModificationAdminInline]
 
 
@@ -44,4 +40,3 @@ class CakeAdmin(admin.ModelAdmin):
     list_editable = ['status', ]
     readonly_fields = ['customer', 'address', 'cake', 'variables_of_modifications', 'phone_number', 'created',
                        'comment', ]
-    # inlines = [VariablesOfModificationAdminInline]
