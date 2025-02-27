@@ -27,7 +27,7 @@ class Modifications(models.Model):
     cake = models.ForeignKey(Cake, on_delete=models.CASCADE, related_name='modifications')
 
     def __str__(self):
-        return f'{self.modification}'
+        return self.modification
 
 
 class VariablesOfModification(models.Model):
@@ -43,12 +43,13 @@ class Order(models.Model):
     customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='orders')
     address = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
-    cake = models.ForeignKey(Cake, on_delete=models.CASCADE, blank=True, null=True, related_name='orders')
-    variables_of_modifications = models.ManyToManyField(VariablesOfModification, blank=True, related_name='orders')
+    cake = models.ForeignKey(Cake, on_delete=models.CASCADE, related_name='orders')
+    variables_of_modifications = models.ManyToManyField(VariablesOfModification, blank=True, null=True,
+                                                        related_name='orders')
     delivery = models.DateTimeField()
     phone_number = models.BigIntegerField()
     created = models.DateTimeField(auto_now_add=True)
     comment = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.customer}"
+        return f'{self.customer}'

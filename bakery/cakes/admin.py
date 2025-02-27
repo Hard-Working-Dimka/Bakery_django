@@ -40,3 +40,6 @@ class CakeAdmin(admin.ModelAdmin):
     list_editable = ['status', ]
     readonly_fields = ['customer', 'address', 'cake', 'variables_of_modifications', 'phone_number', 'created',
                        'comment', ]
+
+    def has_add_permission(self, request):
+        return False
