@@ -36,5 +36,4 @@ class VariablesOfModificationAdmin(admin.ModelAdmin):
 class CakeAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer', 'address', 'cake', 'delivery', 'status', ]
     list_filter = ['delivery', 'status', ]
-    raw_id_fields = ['variables_of_modifications', ]
     list_editable = ['status', 'delivery']
