@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  django_backend:
+    build: ./Bakery_django
+    restart: always
+    ports:
+      - '5000:5555'
+    volumes:
+      - sql_data:/app/bakery/clients_data
+volumes:
+  sql_data:
