@@ -50,6 +50,7 @@ class Order(models.Model):
     phone_number = models.BigIntegerField()
     created = models.DateTimeField(auto_now_add=True)
     comment = models.TextField(blank=True, null=True)
+    total_price = models.DecimalField(decimal_places=2, max_digits=10)
 
     def __str__(self):
         return f'{self.customer}'
