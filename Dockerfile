@@ -2,7 +2,7 @@ FROM python:latest
 
 WORKDIR /app
 
-EXPOSE 5000
+EXPOSE 5555
 
 COPY requirements.txt .
 
