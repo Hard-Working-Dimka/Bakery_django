@@ -44,8 +44,7 @@ class Order(models.Model):
     address = models.CharField(max_length=50)
     status = models.BooleanField(default=False)
     cake = models.ForeignKey(Cake, on_delete=models.CASCADE, related_name='orders')
-    variables_of_modifications = models.ManyToManyField(VariablesOfModification, blank=True, null=True,
-                                                        related_name='orders')
+    variables_of_modifications = models.TextField(blank=True, null=True)
     delivery = models.DateTimeField()
     phone_number = models.BigIntegerField()
     created = models.DateTimeField(auto_now_add=True)

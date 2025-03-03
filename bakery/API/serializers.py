@@ -27,8 +27,6 @@ class CakeSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     customer = serializers.SlugRelatedField(slug_field='telegram_id', queryset=CustomUser.objects.all())
     cake = serializers.SlugRelatedField(slug_field='name', queryset=Cake.objects.all())
-    variables_of_modifications = serializers.SlugRelatedField(slug_field='tier',
-                                                              queryset=VariablesOfModification.objects.all(), many=True)
 
     class Meta:
         model = Order
