@@ -36,7 +36,7 @@ class VariablesOfModification(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=10)
 
     def __str__(self):
-        return f'{self.modification} - {self.tier}'
+        return f'{self.modification.cake} - {self.modification} ({self.tier})'
 
 
 class Order(models.Model):
