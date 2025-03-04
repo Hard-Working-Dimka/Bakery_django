@@ -40,7 +40,9 @@ pip install -r requirements.txt
 
 ```
 SECRET_KEY = REPLACE_ME
+VK_ACCESS_TOKEN= REPLACE_ME
 ```
+
 Примените миграции базы данных:
 
 ```
@@ -133,10 +135,11 @@ python manage.py runserver
 Представляет заказ.
 
 - **Связь по внешнему ключу с:** `customer` из модели `CustomUser`, `cake` из модели `Cake`.
-- **Связь ManyToMAny с:** `variables_of_modifications` из модели `VariablesOfModification`.
-- **Поля**: `address `, `status `, `delivery `, `phone_number `, `created `, `comment `, `total_price `.
+- **Поля**: `address `, `status `, `delivery `, `phone_number `, `created `, `comment `, `total_price `,
+  `variables_of_modifications`.
 
 ---
+
 ## Админ-панель
 
 Панель администратора доступна по адресу /admin/ для управления всеми моделями
