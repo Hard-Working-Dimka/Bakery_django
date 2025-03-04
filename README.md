@@ -39,7 +39,7 @@ pip install -r requirements.txt
 Создайте файл для переменных окружения в корне проекта `.env`. Переменные окружения:
 
 ```
-SECRET_KEY = 
+SECRET_KEY = REPLACE_ME
 ```
 Примените миграции базы данных:
 
