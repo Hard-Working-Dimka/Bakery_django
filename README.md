@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/088c978a-0915-408e-815d-c6a594959853)# BakeryDjango
+# BakeryDjango
 
 **BakeryDjango** — это веб-приложение на основе Django, предназначенное для управления заказами пекарни.
 
