@@ -1,4 +1,4 @@
-# BakeryDjango
+![image](https://github.com/user-attachments/assets/088c978a-0915-408e-815d-c6a594959853)# BakeryDjango
 
 **BakeryDjango** — это веб-приложение на основе Django, предназначенное для управления заказами пекарни.
 
@@ -41,10 +41,10 @@ pip install -r requirements.txt
 ```
 SECRET_KEY = 
 ```
-
 Примените миграции базы данных:
 
 ```
+cd bakery
 python manage.py migrate
 ```
 
