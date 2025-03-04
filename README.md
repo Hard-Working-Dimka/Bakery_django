@@ -26,7 +26,7 @@ cd Bakery_django
 2. Создайте виртуальное окружение:
 
 ```bash
-python3 -m venv env
+python3 -m venv venv
 source venv/bin/activate  # Для Windows: venv\Scripts\activate
 ```
 
